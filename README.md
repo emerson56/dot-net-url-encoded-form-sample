@@ -6,7 +6,7 @@
           
             string url = Constants.Url;
 
-            var requestMessage = new HttpRequestMessage(GetMethod(request.method), url);
+            var requestMessage = new HttpRequestMessage("POST", url);
             
             // add headers
             foreach(var header in request.headers)
