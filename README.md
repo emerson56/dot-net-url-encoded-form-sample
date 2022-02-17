@@ -14,9 +14,9 @@
                 requestMessage.Headers.TryAddWithoutValidation (header.Key, header.Value);
             }
 
-            if(!string.IsNullOrWhiteSpace(request.body))
+            if(!string.IsNullOrWhiteSpace(request.BodyPayload))
             {
-                var kvps = request.body.Split('&')
+                var kvps = request.BodyPayload.Split('&')
                     .Select(x => x.Split('='))
                     .ToDictionary(x => x[0], x => x[1]);
 
