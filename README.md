@@ -1,12 +1,12 @@
 # dot-net-url-encoded-form-sample
 // Boiler plate for making api call using httpclient
 
-    public static async Task<Object> GetResult(SomeRequest request)
+    public static async Task<Object> ExececuteRequest(SomeRequest request)
     {
           
             string url = Constants.Url;
 
-            var requestMessage = new HttpRequestMessage("POST", url);
+            var requestMessage = new HttpRequestMessage(GetHttpMethod(request), url);
             
             // add headers
             foreach(var header in request.headers)
