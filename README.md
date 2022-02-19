@@ -6,7 +6,7 @@
           
             string url = Constants.Url;
 
-            var requestMessage = new HttpRequestMessage(GetHttpMethod(request), url);
+            var requestMessage = new HttpRequestMessage("Http Method Goes Here", url);
             
             // add headers
             foreach(var header in request.headers)
@@ -14,9 +14,9 @@
                 requestMessage.Headers.TryAddWithoutValidation (header.Key, header.Value);
             }
 
-            if(!string.IsNullOrWhiteSpace(request.BodyPayload))
+            if(!string.IsNullOrWhiteSpace(myPayloadBody))
             {
-                var kvps = request.BodyPayload.Split('&')
+                var kvps = myPayLoadBody.Split('&')
                     .Select(x => x.Split('='))
                     .ToDictionary(x => x[0], x => x[1]);
 
