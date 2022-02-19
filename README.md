@@ -25,11 +25,11 @@
 
             var rawResponse = await client.SendAsync(requestMessage);
             
-            //if (rawResponse.IsSuccessStatusCode)
-            //{
-                //string rawContent = await rawResponse.Content.ReadAsStringAsync();
-                //response = JsonConvert.DeserializeObject<Object>(rawContent);
-            //}
+            if (rawResponse.IsSuccessStatusCode)
+            {
+                string rawContent = await rawResponse.Content.ReadAsStringAsync();
+                response = JsonConvert.DeserializeObject<Object>(rawContent);
+            }
 
-            return rawResponse;
+            return response;
     }
